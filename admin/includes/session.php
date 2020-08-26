@@ -6,6 +6,7 @@ class Session{
     private $signed_in = false;
     public $user_id;
     public $count;
+    public $message;
 
 
     function __construct(){
@@ -37,6 +38,7 @@ class Session{
 
         if(isset($_SESSION['message'])){
             
+            $this->message = $_SESSION['message'];
             unset($_SESSION['message']);
 
         }else{
@@ -109,5 +111,6 @@ class Session{
 }
 
 $session = new Session();
+$message = $session->message();
 
 ?>
