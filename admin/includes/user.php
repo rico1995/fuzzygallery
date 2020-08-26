@@ -12,7 +12,7 @@ class User extends Db_object
     public $last_name;
     public $user_image;
     public $upload_directory = "images";
-    public $image_placeholder = "http://placehold.it/400x400&text=image";
+    public $image_placeholder = "https://via.placeholder.com/300&text=image";
 
 
 
@@ -94,9 +94,20 @@ class User extends Db_object
 
     public function ajax_save_user_image($user_image, $user_id)
     {
+        global $database;
+
+        $user_image = $database->escape_string($user_image);
+        $user_id = $database->escape_string($user_id);
+
         $this->user_image = $user_image;
         $this->id = $user_id;
-        $this->save();
+
+        $sql ="UPDATE " . self::$db_table . " SET user_image = '{$this->user_image}'";
+        $sql .= " WHERE id = {$this->id} ";
+        $update_image = $database->query($sql);
+
+        echo $this->image_path_and_placeholder();
+
     }
 
 

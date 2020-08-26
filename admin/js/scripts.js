@@ -39,7 +39,8 @@ $(document).ready(function () {
             success: function (data) {
 
                 if (!data.error) {
-                    location.reload(true);
+
+                    $(".user_image_box a img").prop('src', data);
 
                 }
 
