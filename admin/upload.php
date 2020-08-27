@@ -18,7 +18,7 @@
 
         if($photo->save()){
 
-            $message = "Photo uploaded successfully.";
+            $message = "<p class='bg-success'>Photo uploaded successfully!</p>";
 
         }else{
 
