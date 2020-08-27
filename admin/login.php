@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 <h4 class="bg-danger"><?php echo $the_message; ?></h4>
 	
 <form id="login-id" action="" method="post">
-	
+<h1 class="text-center" style="color:#fff;">FuZzY Gallery v1.0</h1>
 <div class="form-group">
 	<label for="username">Username</label>
 	<input type="text" class="form-control" name="username" value="<?php echo htmlentities($username); ?>" >
