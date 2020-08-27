@@ -9,14 +9,7 @@ $(document).ready(function () {
     var photo_id;
 
 
-    /********** Edit Photo sidebar *******/
-    $(".info-box-header").click(function () {
 
-        $(".inside").slideToggle("fast");
-
-        $("#toggle").toggleClass("glyphicon-menu-down glyphicon-menu-up");
-
-    });
 
     $(".modal_thumbnails").click(function () {
 
@@ -76,6 +69,24 @@ $(document).ready(function () {
 
 
     });
+
+    /********** Edit Photo sidebar *******/
+    $(".info-box-header").click(function () {
+
+        $(".inside").slideToggle("fast");
+
+        $("#toggle").toggleClass("glyphicon-menu-down glyphicon-menu-up");
+
+    });
+
+
+    /********** Delete Function  **************/
+    $(".delete_link").click(function () {
+
+        return confirm("Are you sure you want to delete this item?");
+
+    });
+
 
 
     tinymce.init({
