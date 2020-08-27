@@ -9,7 +9,7 @@ $(document).ready(function () {
     var photo_id;
 
 
-
+/********** Edit Photo sidebar *******/ 
 
     $(".modal_thumbnails").click(function () {
 

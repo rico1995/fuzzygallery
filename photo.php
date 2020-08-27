@@ -124,7 +124,7 @@ $comments = Comment::find_the_comments($photo->id);
                 <!-- Comment -->
                 <div class="media">
                     <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                        <img class="media-object" src="https://via.placeholder.com/300&text=image" alt="">
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading"><?php echo $comment->author; ?>
