@@ -9,7 +9,14 @@ $(document).ready(function () {
     var photo_id;
 
 
-/********** Edit Photo sidebar *******/ 
+    /********** Edit Photo sidebar *******/
+    $(".info-box-header").click(function () {
+
+        $(".inside").slideToggle("fast");
+
+        $("#toggle").toggleClass("glyphicon-menu-down glyphicon-menu-up");
+
+    });
 
     $(".modal_thumbnails").click(function () {
 
@@ -29,7 +36,7 @@ $(document).ready(function () {
         $.ajax({
             url: "includes/ajax_code.php",
             data: {
-                photo_id:photo_id
+                photo_id: photo_id
             },
             type: "POST",
             success: function (data) {
