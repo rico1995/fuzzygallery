@@ -7,25 +7,23 @@
 
 <?php
 
-    $message = "";
+$message = "";
 
-    if(isset($_POST['submit'])){
+if (isset($_FILES['file'])) {
 
-        $photo = new Photo();
-        $photo->title = $_POST['title'];
-        $photo->set_file($_FILES['file_upload']);
+    $photo = new Photo();
+    $photo->title = $_POST['title'];
+    $photo->set_file($_FILES['file']);
 
 
-        if($photo->save()){
+    if ($photo->save()) {
 
-            $message = "<p class='bg-success'>Photo uploaded successfully!</p>";
+        $message = "<p class='bg-success'>Photo uploaded successfully!</p>";
+    } else {
 
-        }else{
-
-            $message = join("<br>", $photo->errors);
-
-        }
+        $message = join("<br>", $photo->errors);
     }
+}
 
 ?>
 
@@ -65,22 +63,28 @@
                     <small>Upload Pictures</small>
                 </h1>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php echo $message; ?>
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
 
-                <div class="col-md-6">
-                    <?php echo $message; ?>
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" name="title" class="form-control">
+                            </div>
 
-                        <div class="form-group">
-                            <input type="text" name="title" class="form-control">
-                        </div>
+                            <div class="form-group">
+                                <input type="file" name="file">
+                            </div>
 
-                        <div class="form-group">
-                            <input type="file" name="file_upload">
-                        </div>
+                            <input type="submit" name="submit">
 
-                        <input type="submit" name="submit">
-
-                    </form>
+                        </form>
+                    </div>
+                </div> <!-- end of row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="upload.php" class="dropzone"></form>
+                    </div>
                 </div>
 
             </div>
